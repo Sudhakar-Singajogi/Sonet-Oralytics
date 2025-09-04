@@ -1,0 +1,16 @@
+audio:
+  target_sample_rate: 16000
+  normalize_dbfs: -20.0
+  mono: true
+vad:
+  silence_db: -35
+  min_silence_sec: 0.5
+  max_chunk_sec: 30.0
+  pad_sec: 0.15
+asr:
+  model: "Xenova/whisper-small.en"   # or tiny/base/medium depending on perf/accuracy
+  language: "en"                     # set language code (use "en" for English)
+  quantized: false                   # true if you download quantized model variant
+  max_chunk_merge_gap_sec: 0.5       # merge if gap between chunks ≤ 0.5s
+  max_chunk_merge_duration_sec: 30.0 # don’t merge if >30s total duration
+  max_chunk_sec: 30.0                # max chunk duration

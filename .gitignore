@@ -1,0 +1,4 @@
+node_modules
+data/processed/
+data/chunks/
+*.log
