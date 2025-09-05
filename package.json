@@ -11,7 +11,12 @@
     "groundwork:fvad": "npm run prep && set FVAD_FRAME_MS=20 && set FVAD_MODE=2 && npm run chunk:fvad",
     "asr": "node tools/runASR.js --manifest data/chunks/chunks_manifest.jsonl --out data/chunks --config configs/default.yaml",
     "wer": "node tools/wer.js --all",
-    "milestone:1": "npm run prep && npm run chunk:fvad && npm run asr"
+    "milestone:1": "npm run prep && npm run chunk:fvad && npm run asr",
+    "prefetch": "node tools/prefetch.js",
+    "align:prep": "node tools/align/alignPrep.js --manifest data/chunks/chunks_manifest.jsonl --asr data/chunks/asr-summary.json --corpus data/align/corpus --dict data/align/dict --config configs/default.yaml",
+    "align:mfa": "node tools/align/runAlignMFA.js --corpus data/align/corpus --dict data/align/dict/lexicon.txt --out data/align/textgrids --model english_mfa --config configs/default.yaml",
+    "align:parse": "node tools/align/parseTextGrid.js --in data/align/textgrids --out data/align/json --jsonl data/align/alignments.jsonl",
+    "milestone:2": "npm run align:prep && npm run align:mfa && npm run align:parse"
   },
   "keywords": [],
   "author": "",

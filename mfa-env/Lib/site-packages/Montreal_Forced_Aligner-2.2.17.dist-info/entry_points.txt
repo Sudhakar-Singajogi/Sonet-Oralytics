@@ -1,0 +1,2 @@
+[console_scripts]
+mfa = montreal_forced_aligner.command_line.mfa:mfa_cli
